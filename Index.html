@@ -1,0 +1,315 @@
+//<html>
+
+	<head>
+	
+		<title> 
+
+			Defenders of bridges - Around the world
+
+		</title>
+	
+	</head>
+
+	<body>
+		
+		<canvas width="1280" height="720" id="main" style="border: 1px solid #000000;">
+		</canvas>
+
+		<script src="classes/mySprite.js"></script>		
+		<script src="classes/button.js"></script>		
+		<script src="classes/credit.js"></script>		
+		<script src="classes/gameover.js"></script>		
+		<script src="classes/level_01.js"></script>		
+		<script src="classes/menu.js"></script>		
+		<script src="classes/theEnd.js"></script>		
+
+		<script type="text/javascript">
+
+		var canvas = document.getElementById ("main");
+		var screen = canvas.getContext ("2d");
+
+			//criação de um ENUM, uma enumeração
+			var SCENE = {MENU: 0, CREDIT: 1, NIVEL_1: 2, GAME_OVER: 3, THE_END: 4}
+
+			//criação de uma variável que vai receber apenas os valores da enumeração
+			var currentScene = SCENE.MENU;
+
+			//criação das variáveis de cena
+			var menu = new Menu();
+			var credit = new Credit();
+			var nivel_1 = new Level_01();
+			var gameOver = new GameOver();
+			var theEnd = new TheEnd();
+
+			// variaveis dos botões
+			var cima_apertei = false;
+			var cima_apertando = false;
+			var cima_soltei = false;
+			var cima_solto = true;
+			
+			var baixo_apertei = false;
+			var baixo_apertando = false;
+			var baixo_soltei = false;
+			var baixo_solto = true;
+
+			var esquerda_apertei = false;
+			var esquerda_apertando = false;
+			var esquerda_soltei = false;
+			var esquerda_solto = true;
+
+			var direita_apertei = false;
+			var direita_apertando = false;
+			var direita_soltei = false;
+			var direita_solto = true;
+
+
+
+//FUNÇOES
+
+		function load()
+			{						
+				if(true)//aqui temos que testar se carregou tudo
+					{
+						loop();
+					}
+					else//senao
+					{
+						setTimeout(Load, 30); 
+					}  
+			}
+
+			function loop()
+			{
+			//console.log("loop");	
+
+			screen.clearRect(0, 0, canvas.width, canvas.height);			
+			
+			//aqui mudamos e chamamos o update e o draw conforme a cena do jogo em que estamos
+				switch(currentScene)
+				{
+					case SCENE.MENU:
+						menu.Update();
+						menu.Draw();
+					break;
+					case SCENE.CREDIT:
+						credit.Update();
+						credit.Draw();
+					break;
+					case SCENE.NIVEL_1:
+						nivel_1.Update();
+						nivel_1.Draw();
+					break;
+					case SCENE.GAME_OVER:
+						gameOver.Update();
+						gameOver.Draw();
+					break;
+					case SCENE.THE_END:
+						theEnd.Update();
+						theEnd.Draw();
+					break;
+				}
+
+					cima_apertei = false;
+					cima_soltei = false;
+
+					baixo_apertei = false;
+					baixo_soltei = false;
+
+					esquerda_apertei = false;
+					esquerda_soltei = false;
+
+					direita_soltei = false;
+					direita_apertei = false;
+
+					setTimeout(loop, 30);
+			}
+
+			//function mouse
+
+			function mouse_down (mouse)
+			{
+				//console.log("MOUSE DOWN INDEX mouse X " + mouse.x + " mouse Y " + mouse.y );
+
+    	    	//descobrir o que faz	
+					switch(currentScene)
+					{
+						case SCENE.MENU:
+							menu.mouse_down(mouse);
+						break;
+						case SCENE.CREDIT:
+							credit.mouse_down(mouse);
+						break;
+						case SCENE.NIVEL_1:
+							//nivel_1.mouse_down(mouse);
+						break;
+						case SCENE.GAME_OVER:
+							gameOver.mouse_down(mouse);
+						break;
+						case SCENE.THE_END:
+							theEnd.mouse_down(mouse);
+						break;
+					}
+					
+			};
+			window.addEventListener("mousedown", mouse_down, true); // diz que " ao clicar " variavel moouse down vira verdadeira
+
+			function mouse_up (mouse)
+			{
+				//console.log("MOUSE UP INDEX mouse X " + mouse.x + " mouse Y " + mouse.y );
+
+    	    		switch(currentScene)
+					{
+						case SCENE.MENU:
+							menu.mouse_up(mouse);
+						break;
+						case SCENE.CREDIT:
+							credit.mouse_up(mouse);
+						break;
+						case SCENE.NIVEL_1:
+							//nivel_1.mouse_up(mouse);
+						break;
+						case SCENE.GAME_OVER:
+							gameOver.mouse_up(mouse);
+						break;
+						case SCENE.THE_END:
+							theEnd.mouse_up(mouse);
+						break;
+					}
+			}
+						window.addEventListener("mouseup", mouse_up, true);
+
+			//fuction do teclado
+			function key_down(key)	
+			{
+					//console.log("KEY DOWN INDEX keyCode " + key.keyCode );
+
+    	    		if(key.keyCode == 38 && cima_solto)
+					{
+						cima_solto = false;
+						cima_apertei = true;
+						cima_apertando = true;
+					}
+
+
+					if(key.keyCode == 40 && baixo_solto)
+					{
+						baixo_solto = false;
+						baixo_apertei = true;
+						baixo_apertando = true;
+					}
+
+					if(key.keyCode == 37 && esquerda_solto)
+					{
+						esquerda_solto = false;
+						esquerda_apertei = true;
+						esquerda_apertando = true;
+					}
+
+					if(key.keyCode == 39 && direita_solto)
+					{	
+						direita_solto = false;
+						direita_apertei = true;
+						direita_apertando = true;
+					}
+
+					
+
+    	    		switch(currentScene)
+					{
+						case SCENE.MENU:
+							menu.key_down(key);
+						break;
+						case SCENE.CREDIT:
+							credit.key_down(key);
+						break;
+						case SCENE.NIVEL_1:
+							//nivel_1.key_down(key);
+						break;
+						case SCENE.GAME_OVER:
+							gameOver.key_down(key);
+						break;
+						case SCENE.THE_END:
+							theEnd.key_down(key);
+						break;
+						default:
+							
+						break;
+					}
+			}
+			window.addEventListener("keydown",key_down, true); 
+					
+			function key_up(key)
+			{
+					//console.log("KEY UP INDEX keyCode " + key.keyCode );	
+					
+					if(key.keyCode == 38 && cima_apertando)
+					{
+						cima_apertando = false;
+						cima_soltei = true;
+						cima_solto = true;	
+					}
+
+					if(key.keyCode == 40 && baixo_apertando)
+					{
+						baixo_apertando = false;
+						baixo_soltei = true;
+						baixo_solto = true;	
+					}
+					
+					if(key.keyCode == 37 && esquerda_apertando)
+					{
+						esquerda_apertando = false;
+						esquerda_soltei = true;
+						esquerda_solto = true;	
+					}
+
+					if(key.keyCode == 39 && direita_apertando)
+					{
+						direita_apertando = false;
+						direita_soltei = true;
+						direita_solto = true;	
+					}
+
+					switch(currentScene)
+					{
+						case SCENE.MENU:
+							menu.key_up(key);
+						break;
+						case SCENE.CREDIT:
+							credit.key_up(key);
+						break;
+						case SCENE.NIVEL_1:
+							//nivel_1.key_up(key);
+						break;
+						case SCENE.GAME_OVER:
+							gameOver.key_up(key);
+						break;
+						case SCENE.THE_END:
+							theEnd.key_up(key);
+						break;
+					}
+			}
+				window.addEventListener("keyup",key_up, true );
+				
+				//setInterval(Level_01.tiro, 5000);
+
+			//limitando tiro - geral para todos os niveis
+				
+					var PoderAtirar = false;
+					
+					setInterval(limitadorTiro, 500);	
+					
+					function limitadorTiro()
+					{
+						PoderAtirar = true;
+						console.log("tempo");
+					}	
+	
+
+
+				load();
+		
+		</script>	
+
+	</body>
+</html>
