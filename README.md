@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# Bridge Defensors
 
-You can use the [editor on GitHub](https://github.com/Andrefelipe1997/BridgeDefensorsLearningGame/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+![Game Title]()
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Português:
 
-### Markdown
+Segundo projeto feito no curso técnico de Programação de Jogos Digitais do SENAI. Este é um re-skin feito com Html e Javascript do jogo Atlantis do Atari.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+  #### Resumo:
+  
+  Um vírus digital infectou todo o sistema aéreo mundial, contaminando todos os controles de todas as aeronaves pelo mundo. Estas espaçonaves começaram a bombardear diversas estruturas ao redor do globo, incluindo a Golden Gate (Califórnia), a grande muralha da China (China), a Tower Bridge (Londres) e a ponte Rio-Niterói (Brasil). 
+  Em um esforço conjunto, todas as nações do mundo juntaram suas forças marítimas e terrestres para derrubar as aeronaves.
+  
+  #### Controles
+  * Seta Esquerda - Disparar com tanque/navio esquerdo
+  * Seta Direita - Disparar com tanque/navio direito
+  * Seta Cima - Disparar com tanque/navio do meio
 
-```markdown
-Syntax highlighted code block
+  #### Plataforma
+  Navegador
+  
+  #### Softwares/Tecnologias usadas:
+  1. Html
+  2. Javascript
+  3. Adobe Illustrator
+  
+  #### Créditos:
+  1. André Felipe dos Santos (Programador)
+  2. Luiz Guerra (Artista)
+  3. Felipe Camilo (Artista)
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Andrefelipe1997/BridgeDefensorsLearningGame/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+  #### Melhorias a Fazer em programação:
+  - [X] Mudança de telas.
+  - [X] Lógica de disparos.
+  - [X] Movimento das balsas.
+  - [ ] Corrigir o texto do botão na tela inicial de "Star" para "Start".
+  - [ ] Modularizar o código, utilizando Javascript Modules.
+  - [ ] Adicionar lógica de ataque das aeronaves.
+  - [ ] Adicionar lógica de GameOver.
+  - [ ] Adicionar os cenários finais.
+  - [ ] Adicionar outros algoritmos de colisão
+  - [ ] Separar a lógica de renderização da lógica de colisão
+  
+  #### Melhorias a Fazer em arte:
+  - [X] Criação da arte protótipo do cenário.
+  - [X] Criação da arte protótipo dos tanques.
+  - [X] Criação da arte protótipo da aeronave.
+  - [X] Criação da arte protótipo do projétil
+  - [ ] Melhorias na arte dos cenários.
+  - [ ] Melhorias na arte dos tanques.
+  - [ ] Adição da arte dos navios.
+  - [ ] Melhorias na arte das aeronaves.
